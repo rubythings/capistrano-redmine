@@ -53,7 +53,7 @@ module Capistrano
         end
 
         begin
-          issues = RedmineClient::Issue.all ({ project_id: p, status_id: from_status, limit: 100 })
+          issues = RedmineClient::Issue.all ({ project_id => p, status_id => from_status, limit => 100 })
 
           issues.each do |i|
             RedmineClient::Issue.update(i['id'], { "issue[status_id]" => to_status })
